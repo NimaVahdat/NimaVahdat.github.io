@@ -65,23 +65,23 @@
     });
     
      /*---------gallery isotope js-----------*/
-    function galleryMasonry(){
-        if ( $('#gallery').length ){
-            $('#gallery').imagesLoaded( function() {
-              // images have loaded
-                // Activate isotope in container
-                $("#gallery").isotope({
-                    itemSelector: ".gallery_item",
-                    layoutMode: 'masonry',
-                    animationOptions: {
-                        duration: 750,
-                        easing: 'linear'
-                    }
-                });
-            })
-        }
-    }
-    galleryMasonry();
+    // function galleryMasonry(){
+    //     if ( $('#gallery').length ){
+    //         $('#gallery').imagesLoaded( function() {
+    //           // images have loaded
+    //             // Activate isotope in container
+    //             $("#gallery").isotope({
+    //                 itemSelector: ".gallery_item",
+    //                 layoutMode: 'masonry',
+    //                 animationOptions: {
+    //                     duration: 750,
+    //                     easing: 'linear'
+    //                 }
+    //             });
+    //         })
+    //     }
+    // }
+    // galleryMasonry();
 	
 	/*----------------------------------------------------*/
     /*  Simple LightBox js
