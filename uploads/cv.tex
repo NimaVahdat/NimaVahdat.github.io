@@ -1,0 +1,280 @@
+%-------------------------
+% Resume in Latex (Industry Version)
+% Author: Nima Vahdat
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.0in}
+\setlength{\footskip}{0.5in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+  \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textbf{\small #2} \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+    \small\textbf{#1} & \textbf{\small #2} \\
+  \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectRole}[2]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% Sub-project entry inside an experience: bold name left, italic tech stack right
+\newcommand{\resumeExpProject}[2]{
+  \vspace{3pt}\item[]
+  \begin{tabular*}{0.985\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \small\textbf{#1} & \small\textit{#2} \\
+  \end{tabular*}\vspace{-5pt}
+}
+\newcommand{\resumeExpProjectListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeExpProjectListEnd}{\end{itemize}\vspace{-4pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME START %%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Nima Vahdat} \\ \vspace{1pt}
+    \small
+    \href{mailto:vahdat.nima@gmail.com}{\raisebox{-0.2\height}\faEnvelope\ \underline{vahdat.nima@gmail.com}} ~
+    \href{https://www.linkedin.com/in/nima-vahdat-a220654a/}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/nima-vahdat}} ~
+    \href{https://github.com/NimaVahdat}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/NimaVahdat}} ~
+    \href{https://nimavahdat.github.io/}{\raisebox{-0.2\height}\faGlobe\ \underline{nimavahdat.github.io}}
+    \vspace{-8pt}
+\end{center}
+
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{AI Research Engineer Intern (R\&D Intern)}{Nov 2024 -- Present}
+{Georgian Partners}{Toronto, ON}
+\resumeExpProjectListStart
+
+  \resumeExpProject{forge\_dc --- Behavioral Memory System}{Python, graph DB, RAG, BM25, OpenAI}
+  \resumeItemListStart
+    \resumeItem{Developed novel \textbf{four-layer behavioral memory system}: \textbf{97\% compliance} vs.\ 7\% baseline --- a \textbf{90-point gain}.}
+    \resumeItem{Trigger-anchored \textbf{progressive injection} cuts context tokens \textbf{$\sim$9$\times$} vs.\ hybrid RAG.}
+    \resumeItem{Discovered \textbf{``Only Rules Rule''}: directive format beats evidence/narrative by \textbf{25+ points}; \textbf{paper in preparation}.}
+  \resumeItemListEnd
+
+  \resumeExpProject{DC-Bench --- Behavioral Memory Benchmark}{Python, OpenAI, Pydantic}
+  \resumeItemListStart
+    \resumeItem{Designed the \textbf{first benchmark for behavioral memory in LLM agents}: \textbf{46 real-trace scenarios} across \textbf{19 behavioral dimensions}.}
+    \resumeItem{Established seed-then-test on \textbf{unseen subjects}; found synthetic seeds inflate scores by \textbf{30+ points}.}
+  \resumeItemListEnd
+
+  \resumeExpProject{OpenGeorge --- Context Engine}{pydantic-ai, FastAPI, PostgreSQL, SQLAlchemy}
+  \resumeItemListStart
+    \resumeItem{Built \textbf{async PostgreSQL context engine} (SQLAlchemy + Alembic) for persistent cross-session \textbf{AI agent memory}.}
+    \resumeItem{Designed \textbf{markdown-defined skill routing} via pydantic-ai --- team ships new AI capabilities by writing a single \texttt{.md} file.}
+    \resumeItem{Integrated \textbf{Slack Bot} and \textbf{FastAPI} REST layer for multi-channel access.}
+  \resumeItemListEnd
+
+  \resumeExpProject{MCP Server}{FastMCP, Python, HTTP/SSE, asyncio}
+  \resumeItemListStart
+    \resumeItem{Diagnosed and eliminated \textbf{per-call MCP server spawn overhead} by redesigning as a \textbf{persistent HTTP/SSE standalone microservice}.}
+    \resumeItem{Extended beyond scope: \textbf{parallel batch execution}, \textbf{unified SSE gateway}, and \textbf{auto-discovery of tool schemas at startup}.}
+    \resumeItem{Shipped \textbf{8 production integrations} powering all AI agents across the platform.}
+  \resumeItemListEnd
+
+  \resumeExpProject{George-Tracking --- Event Intelligence Agent}{LangGraph, LangChain, Langfuse}
+  \resumeItemListStart
+    \resumeItem{Built \textbf{LangGraph} multi-agent pipeline for autonomous corporate event discovery.}
+    \resumeItem{Parallel web-search and \textbf{LinkedIn-scraping} paths with LLM signal extraction and 3-phase refinement.}
+    \resumeItem{Instrumented with \textbf{Langfuse} for production LLM observability and prompt versioning.}
+  \resumeItemListEnd
+
+  \resumeExpProject{Blog-Post Generation Pipeline}{pydantic-ai, Claude, Anthropic SDK}
+  \resumeItemListStart
+    \resumeItem{Built \textbf{multi-agent Writer--Reviewer pipeline} with 6-turn refinement and \textbf{10-criterion LLM editor}.}
+    \resumeItem{Added \textbf{claim verification} against scraped sources and 3-pass \textbf{de-slop} detection + rewrite loop.}
+  \resumeItemListEnd
+
+  \resumeExpProject{Infrastructure}{Terraform, GCP, OpenTelemetry, Logfire}
+  \resumeItemListStart
+    \resumeItem{Provisioned \textbf{GCP} (Cloud Run, IAM) via \textbf{Terraform}; instrumented services with \textbf{OpenTelemetry} for distributed tracing.}
+  \resumeItemListEnd
+
+\resumeExpProjectListEnd
+
+\resumeSubheading
+{Graduate Research Assistant --- Graph Neural Networks}{Sep 2022 -- Present}
+{York University}{Toronto, ON}
+\resumeItemListStart
+  \resumeItem{Led development of a \textbf{graph-based framework} for contour grouping, integrating \textbf{CNN features} with multi-step \textbf{message passing} to capture local and global shape context.}
+  \resumeItem{Built scalable \textbf{data pipelines} converting high-resolution images into graph structures.}
+  \resumeItem{Designed a \textbf{synthetic dataset of 100k+ shapes} for pretraining and hypothesis validation.}
+  \resumeItem{Optimized \textbf{distributed PyTorch training} with \textbf{Hugging Face Accelerate}; performed \textbf{ablation studies} on message-passing steps, edge features, and grouping cues.}
+\resumeItemListEnd
+
+\resumeSubheading
+{Applied AI Researcher --- VISTA Trainee (RAG System)}{May 2024 -- Sep 2024}
+{VISTA / York University}{Toronto, ON}
+\resumeItemListStart
+  \resumeItem{Developed a local \textbf{RAG system} with \textbf{LLaMA} for query answering and summarization; implemented document retrieval using \textbf{ChromaDB}, \textbf{LangChain}, and real-time web scraping.}
+  \resumeItem{Engineered \textbf{prompt optimization strategies} to improve LLM accuracy and contextual relevance.}
+  \resumeItem{Built a production-ready \textbf{Flask API} and \textbf{Gradio interface} for interactive evaluation and deployment.}
+\resumeItemListEnd
+
+\resumeSubheading
+{Teaching Assistant (Python, Programming)}{Sep 2022 -- Apr 2025}
+{York University}{Toronto, ON}
+\resumeItemListStart
+  \resumeItem{Taught and supported \textbf{200+ students} across multiple programming courses; delivered lab sessions and one-on-one mentorship.}
+  \resumeItem{Introduced \textbf{software engineering practices} including test-driven development and algorithm tracing.}
+\resumeItemListEnd
+
+\resumeSubheading
+{AI Research Intern}{Sep 2020 -- Apr 2021}
+{University of Tehran}{Tehran, Iran}
+\resumeItemListStart
+  \resumeItem{Developed the \textbf{DeepSNN framework} in \textbf{PyTorch} for simulating spiking neural networks, implementing CNN layers, pooling, and neural encoding methods.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------RESEARCH-----------
+\section{Research}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+  {\textbf{Behavioral Memory for LLM Agents}}{In Preparation}
+\resumeItemListStart
+  \resumeItem{\textbf{DC-Bench}: First benchmark for LLM agent behavioral memory --- 46 real-trace scenarios across 19 dimensions (correction chains, actor preferences, scale, temporal drift, multi-hop).}
+  \resumeItem{\textbf{forge\_dc}: Novel memory system achieving \textbf{97\% compliance} vs.\ 7\% baseline via trigger-anchored progressive injection; introduces the \textbf{``Only Rules Rule''} empirical finding.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+  {\href{https://github.com/NimaVahdat/Nutrition_Fact_AR_Reader}{Nutrition Fact AR Reader}}{\emph{PyTorch, YOLOv8-seg, PaddleOCR, Unity, Flask, Gradio, Ollama}}
+\resumeItemListStart
+  \resumeItem{Built a \textbf{real-time AR system} to detect and extract nutrition facts; fine-tuned \textbf{YOLOv8-seg} on 200+ images, achieving \textbf{95\% mAP@50}.}
+  \resumeItem{Integrated \textbf{PaddleOCR} with a local \textbf{LLM (Ollama)} for structured parsing; deployed AR overlay in \textbf{Unity} with real-time comparison and recommendations.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+  {\href{https://github.com/NimaVahdat/BART-Summarization-Rating}{LLM PEFT Multitask Summarization \& Sentiment}}{\emph{BART, PEFT, Hugging Face, Flask, Gradio}}
+\resumeItemListStart
+  \resumeItem{Fine-tuned a \textbf{BART-based LLM} with \textbf{PEFT} for multitask summarization and sentiment classification under a shared encoder--decoder architecture.}
+  \resumeItem{Deployed via \textbf{Flask API} and \textbf{Gradio interface} for real-time inference.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+  {\href{https://github.com/NimaVahdat/FoodSeg_mask2former}{FoodSeg103: Mask2Former}}{\emph{Vision Transformers, Semantic Segmentation, Hugging Face, Gradio}}
+\resumeItemListStart
+  \resumeItem{Fine-tuned \textbf{Mask2Former} on FoodSeg103 (103 categories) via \textbf{transfer learning} and hyperparameter tuning, boosting mIoU; deployed interactive \textbf{Gradio app}.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+  {\href{https://github.com/NimaVahdat/Image_Retrieval_System}{Image Retrieval System}}{\emph{Python, PyTorch, VGG16, Word2Vec, CV+NLP}}
+\resumeItemListStart
+  \resumeItem{Developed a \textbf{cross-modal image-text retrieval system} combining \textbf{VGG16 visual features} with \textbf{Word2Vec embeddings}, aligned via cosine similarity over 10,000+ images.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+  {\href{https://github.com/NimaVahdat/Few-Shot-Learning}{FEAT: Few-Shot Learning}}{\emph{PyTorch, TensorboardX, NumPy, CV}}
+\resumeItemListStart
+  \resumeItem{Implemented the \textbf{FEAT architecture} (Few-Shot Embedding Adaptation) with a custom meta-learning framework and data loaders; validated on standard few-shot benchmarks.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------SKILLS-----------
+\section{Skills}
+\resumeSubHeadingListStart
+  \item \textbf{Programming:} Python (7+ yrs), C/C++ (5 yrs), SQL, Bash, HCL (Terraform), Assembly
+  \item \textbf{Frameworks \& Libraries:} PyTorch, TensorFlow, Hugging Face, pydantic-ai, LangGraph, LangChain, FastMCP, Starlette, FastAPI, Flask, Gradio, OpenCV, Scikit-learn, Pandas, NumPy
+  \item \textbf{Machine Learning \& AI:} Deep Learning, \textbf{Agentic AI} (Multi-Agent Systems, Tool Use, MCP), \textbf{LLMs} (Claude/Anthropic, GPT, LLaMA, BART, LoRA/PEFT), \textbf{RAG} \& Behavioral Memory, Prompt Engineering \& Compilation, Computer Vision (CNNs, Transformers, Detection \& Segmentation), NLP (tokenization, embeddings, transformers), Benchmark Design
+  \item \textbf{MLOps \& Infrastructure:} Docker, Kubernetes, Terraform (GCP), CI/CD (GitHub Actions, GitLab CI), BigQuery, Vector DBs (FAISS, Pinecone, ChromaDB), MLflow, W\&B, Logfire/OpenTelemetry, Langfuse, Infisical, Git, Linux, uv
+  \item \textbf{Cloud Platforms:} GCP (Vertex AI, BigQuery, Cloud Run), AWS (S3, EC2, IAM, ECR, ECS/EKS, Lambda, Bedrock, CloudWatch), Azure AI
+  \item \textbf{APIs \& Scraping:} REST APIs, Anthropic SDK, BrightData, Serper, Exa, You.com, PRAW (Reddit), BeautifulSoup, asyncio/httpx
+  \item \textbf{Developer Tools:} Claude Code, Anthropic SDK, Model Context Protocol (MCP), SQLAlchemy, Alembic, Slack Bolt, APScheduler
+\resumeSubHeadingListEnd
+
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+  {York University}{}
+  {Master of Computer Science}{Toronto, Canada}
+  \resumeItemListStart
+    \resumeItem{Awarded the \textbf{VISTA Scholarship}.}
+    \resumeItem{Research: \textbf{Graph Neural Networks} for contour grouping and perceptual organization.}
+  \resumeItemListEnd
+
+\resumeSubheading
+  {University of Tehran}{}
+  {Bachelor of Computer Science}{Tehran, Iran}
+
+\resumeSubHeadingListEnd
+
+\end{document}

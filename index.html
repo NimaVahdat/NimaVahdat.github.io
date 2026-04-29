@@ -1,564 +1,463 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Nima Vahdat website webpage">
-    <meta name="keywords" content="Nima, Vahdat, nima, vahdat, york, university, graduate, researcher, deep, learning, computer, vision, Artificial, Intellignce">
-    <meta name="author" content="Nima Vahdat">
-    <title>Nima Vahdat - GitHub Pages</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nima Vahdat — AI research engineer working on agentic systems, behavioral memory for LLM agents, and computer vision.">
+  <meta name="author" content="Nima Vahdat">
+  <meta name="theme-color" content="#07090c">
+  <title>nima vahdat // operator</title>
+  <link rel="icon" href="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'&gt;&lt;rect width='32' height='32' fill='%2307090c'/&gt;&lt;text x='50%25' y='62%25' font-family='monospace' font-size='18' font-weight='700' fill='%2300d4d4' text-anchor='middle'&gt;nv&lt;/text&gt;&lt;/svg&gt;">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=6">
 </head>
-	
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="img/favicon.png" type="image/png">
-        <title>MeetMe Personal</title>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="vendors/linericon/style.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
-        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-        <link rel="stylesheet" href="vendors/animate-css/animate.css">
-        <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
-        <link rel="stylesheet" href="vendors/flaticon/flaticon.css">
-        <!-- main css -->
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css">
-    </head>
-    <body>
-        
-        <!--================Header Menu Area =================-->
-        <header class="header_area">
-            <div class="main_menu">
-            	<nav class="navbar navbar-expand-lg navbar-light">
-					<div class="container box_1620">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-							<ul class="nav navbar-nav menu_nav ml-auto">
-								<!-- <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>  -->
-								<!-- <li class="nav-item"><a class="nav-link" href="about-us.html">About and CV</a></li>  -->
-								<!-- <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>  -->
-			<!-- 					<li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-									<ul class="dropdown-menu">
-										<li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-										<li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-									</ul>
-								</li>  -->
-						<!-- 		<li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-									<ul class="dropdown-menu">
-										<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-										<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-									</ul>
-								</li>  -->
+<body>
 
+  <!-- ============================== Boot ============================== -->
+  <div class="boot" id="boot">
+    <div class="boot-inner" id="boot-inner"></div>
+  </div>
 
-								<!-- <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> -->
+  <!-- ============================== App ============================== -->
+  <div class="app">
 
+    <!-- Status bar -->
+    <div class="statusbar" role="status" aria-label="system status">
+      <div class="statusbar-cell"><span class="dot blink"></span> NV-OS // 3.2.1</div>
+      <div class="statusbar-cell"><span class="dot cyan"></span> link: stable</div>
+      <div class="statusbar-cell"><span class="dot amber"></span> agent runtime: online</div>
+      <div class="statusbar-cell flex"><span id="uptime" class="mono-num">T+00:00</span></div>
+      <div class="statusbar-cell right"><span id="clock" class="mono-num">--:--:-- UTC</span></div>
+    </div>
 
+    <main>
 
+      <!-- ============================== Hero ============================== -->
+      <section class="hero" id="identity" aria-labelledby="hero-name">
 
-							</ul>
-						</div> 
-					</div>
-            	</nav>
+        <article class="panel panel-corners identity-panel">
+          <span class="c-tr"></span><span class="c-bl"></span>
+          <div class="panel-head">
+            <div><span class="id">▸</span> /identity</div>
+            <div>node 0x01</div>
+          </div>
+          <div class="identity-body">
+
+            <div class="portrait-frame" aria-hidden="true">
+              <span class="target tl"></span>
+              <span class="target tr"></span>
+              <img src="img/portrait.png" alt="">
+              <div class="portrait-meta">
+                <span>SUBJ: NV-01</span>
+                <span>● REC</span>
+              </div>
             </div>
-        </header>
-        <!--================Header Menu Area =================-->
-        
-        <!--================Home Banner Area =================-->
-        <section class="home_banner_area">
-           	<div class="container box_1620">
-           		<div class="banner_inner d-flex align-items-center">
-					<div class="banner_content">
-						<div class="media">
-							<div class="d-flex">
-								<img src="img/personal.jpg" alt="">
-							</div>
-							<div class="media-body">
-								<div class="personal_text" >
-									<h6>Hello Everybody, i am</h6>
-									<h3>Nima Vahdat</h3>
-									<h4>Deep Learning and Artificial Intellignce Researcher</h4>
-									<p>
 
-   
-	<section>
-	    <h2>Research Engagement:</h2>
-	    <p><strong>Role:</strong> Currently serving as a dedicated Graduate Research Assistant, actively contributing to deep learning research under the guidance of Prof. James Elder.</p>
-	    <p><strong>Research Focus:</strong> Designing a novel deep neural network architecture to address texture bias and improve sensitivity to holistic features in Deep Neural Networks (DNNs), leading to more generalized performance.</p>
-	    <p><strong>Proposed Solutions:</strong> Developing new training methodologies and implementing a custom architecture to significantly enhance object recognition and segmentation capabilities.</p>
-	</section>
+            <div class="identity-text">
+              <div class="kicker"><span class="bracket">[</span> operator profile <span class="bracket">]</span></div>
+              <h1 class="name" id="hero-name">
+                NIMA<br>VAHDAT
+              </h1>
+              <p class="tagline">
+                ai research engineer building <span class="accent">memory</span> and <span class="accent">tooling</span> for llm agents — and a graduate researcher working on graph neural networks for perceptual organization.
+              </p>
 
+              <div class="handle-row">
+                <a class="chip" href="https://github.com/NimaVahdat" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.8 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.7.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.8-5.8 7.8-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+                  github
+                </a>
+                <a class="chip" href="https://www.linkedin.com/in/nima-vahdat-a220654a/" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.5A1.5 1.5 0 1 1 8 6a1.5 1.5 0 0 1-1.5 1.5zM19 19h-3v-5c0-1-.5-1.5-1.3-1.5s-1.7.6-1.7 1.5V19h-3V9h3v1.4c.4-.7 1.5-1.4 2.7-1.4 2 0 3.3 1.3 3.3 3.5V19z"/></svg>
+                  linkedin
+                </a>
+              </div>
 
-    <section>
-        <h2>Academic Journey:</h2>
-        <p><strong>Master's Student:</strong> Currently pursuing a Master's degree at York University, further deepening my knowledge in the field.</p>
-        <p><strong>Bachelor's Degree:</strong> I earned my Bachelor's degree in Computer Science from the esteemed University of Tehran.</p>
-    </section>
-
-    
-
-
-<!-- 
-    <section>
-	    <h2>Passion for Innovation:</h2>
-	    <p> I am enthusiastic about the opportunities that lie ahead and look forward to contributing my skills and knowledge to drive advancements in the world of deep learning.</p>
-	</section> -->
-
-</p>
-
-									<ul class="list basic_info">
-										<!-- <li><a href="#"><i class="lnr lnr-calendar-full"></i> 31st December, 1992</a></li> -->
-										<!-- <li><a href="#"><i class="lnr lnr-phone-handset"></i> 44 (012) 6954 783</a></li> -->
-										<li><a href="mailto:nimavah@yorku.ca"><i class="lnr lnr-envelope"></i> nimavah@yorku.ca</a></li>
-										<li><a href="https://www.google.com/maps?q=Lassonde+Building" target="_blank"><i class="lnr lnr-home"></i> Lassonde Building, York University</a></li>
-
-									</ul>
-									<ul class="list personal_social">
-										<li><a href="https://github.com/NimaVahdat" target="_blank"><i class="fa fa-github"></i></a></li>
-										<li><a href="https://www.linkedin.com/in/nima-vahdat-a220654a/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+              <div class="signal-grid" id="gh-feed" aria-live="polite">
+                <div class="signal-head">
+                  <span class="signal-head-label">github // recent activity</span>
+                  <span class="signal-head-meta" id="gh-meta">• connecting...</span>
+                </div>
+                <div class="signal-list" id="gh-list">
+                  <div class="signal-skel"></div>
+                  <div class="signal-skel"></div>
+                  <div class="signal-skel"></div>
+                  <div class="signal-skel"></div>
+                </div>
+              </div>
             </div>
-        </section>
-        <!--================End Home Banner Area =================-->
-        
-        <!--================Welcome Area =================-->
-        <section class="welcome_area p_120">
-        	<div class="container">
-        		<div class="row welcome_inner">
-        			<div class="col-lg-6 ">
-					    <div class="welcome_text">
-					        <h4>About Myself</h4>
-					        <p>
-								I am a dedicated and results-driven professional with a strong focus on developing and implementing innovative solutions in AI and machine learning. My expertise lies in solving complex problems by designing models that can adapt to various tasks, from natural language processing to computer vision. I have a solid foundation in programming, which enables me to approach challenges methodically, ensuring that my solutions are efficient and scalable.
-							</p>
-							<p>
-								Throughout my career, I have worked on projects involving deep learning, graph neural networks, and multi-task learning. My ability to handle large datasets, optimize model performance, and streamline processes has been pivotal in delivering impactful results. I am passionate about staying at the cutting edge of AI research and applying my skills to develop solutions that push the boundaries of what's possible. With a keen interest in advancing AI technologies, I continually seek opportunities to apply my expertise to real-world challenges, contributing to the future of intelligent systems.
-							</p>
-					    </div>
-					</div>
 
-        			<!-- <div class="col-lg-6"> -->
-        				<!-- <div class="row">
-						    <div class="col-md-8 mx-auto text-center">
-						        <div class="wel_item" style="margin-top: 100px;">
-						            <a href="#" target="_blank" class="pdf-button" style="font-size: 28px;">
-						                <i class="lnr lnr-book"></i>
-						                CV
-						            </a>
-						        </div>
-						    </div>
-						</div> -->
+          </div>
+        </article>
 
-        				<!-- <div class="tools_expert">
-        					<div class="skill_main">
-								<div class="skill_item">
-									<h4>After Effects <span class="counter">85</span>%</h4>
-									<div class="progress_br">
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-										</div>
-									</div>
-								</div>
-								<div class="skill_item">
-									<h4>Photoshop <span class="counter">90</span>%</h4>
-									<div class="progress_br">
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-										</div>
-									</div>
-								</div>
-								<div class="skill_item">
-									<h4>Illustrator <span class="counter">70</span>%</h4>
-									<div class="progress_br">
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-										</div>
-									</div>
-								</div>
-								<div class="skill_item">
-									<h4>Sublime <span class="counter">95</span>%</h4>
-									<div class="progress_br">
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-										</div>
-									</div>
-								</div>
-								<div class="skill_item">
-									<h4>Sketch <span class="counter">75</span>%</h4>
-									<div class="progress_br">
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-        				</div> -->
-        			<!-- </div> -->
-        		</div>
-        	</div>
-        </section>
-        <!--================End Welcome Area =================-->
-        
-        <!--================My Tabs Area =================-->
-        <section class="mytabs_area p_120">
-        	<div class="container">
-        		<div class="tabs_inner">
-					<ul class="nav nav-tabs" id="myTab" role="tablist">
-						<li class="nav-item">
-							<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Some of My Experiences</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My Education</a>
-						</li>
-					</ul>
-					<div class="tab-content" id="myTabContent">
-						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-							<ul class="list">
-								<li>
-									<span></span>
-									<div class="media">
-										<div class="d-flex">
-											<p>September 2022 to present</p>
-										</div>
-										<div class="media-body">
-											<h4>Elder's Lab</h4>
-											<p>Graduate Research Assistant <br />York University</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<span></span>
-									<div class="media">
-										<div class="d-flex">
-											<p>September 2022 to present</p>
-										</div>
-										<div class="media-body">
-											<h4>York University</h4>
-											<p>Teaching Assistant<br />Programming Courses</p>
-										</div>
-									</div>
-								</li>
-								<li>
-								<span></span>
-									<div class="media">
-										<div class="d-flex">
-											<p>September 2019 to 2022</p>
-										</div>
-										<div class="media-body">
-											<h4>University of Tehran</h4>
-											<p>Teaching Assistant <br />Artificial Intellignce </p>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-							<ul class="list">
-								<li>
-									<span></span>
-									<div class="media">
-										<div class="d-flex">
-											<p>September 2022 to present</p>
-										</div>
-										<div class="media-body">
-											<h4>Master of Computer Science</h4>
-											<p>York University <br />Toronto, Canada</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<span></span>
-									<div class="media">
-										<div class="d-flex">
-											<p>September 2018 to 2022</p>
-										</div>
-										<div class="media-body">
-											<h4>Bachelor of Computer Science</h4>
-											<p>University of Tehran <br /> Tehran, Iran</p>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-        		</div>
-        	</div>
-        </section>
-        <!--================End My Tabs Area =================-->
-        
-        <!--================Feature Area =================-->
-<!--         <section class="feature_area p_120">
-        	<div class="container">
-        		<div class="main_title">
-        			<h2>offerings to my clients</h2>
-        			<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see some for as low as $.17 each.</p>
-        		</div>
-        		<div class="feature_inner row">
-        			<div class="col-lg-4 col-md-6">
-        				<div class="feature_item">
-        					<i class="flaticon-city"></i>
-        					<h4>Architecture</h4>
-        					<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see some for as low as $17 each.</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-md-6">
-        				<div class="feature_item">
-        					<i class="flaticon-skyline"></i>
-        					<h4>Interior Design</h4>
-        					<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see some for as low as $17 each.</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-md-6">
-        				<div class="feature_item">
-        					<i class="flaticon-sketch"></i>
-        					<h4>Concept Design</h4>
-        					<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see some for as low as $17 each.</p>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        </section> -->
-        <!--================End Feature Area =================-->
-        
-        <!--================Home Gallery Area =================-->
+        <aside class="panel readout-panel">
+          <div class="panel-head">
+            <div><span class="id">▸</span> /readout</div>
+            <div>vital_signs.log</div>
+          </div>
+          <div class="readout-body">
+            <div class="readout-row">
+              <div class="label">role</div>
+              <div class="value">ai research engineer</div>
+              <div class="badge cyan">active</div>
+            </div>
+            <div class="readout-row">
+              <div class="label">research</div>
+              <div class="value">graph neural networks</div>
+              <div class="badge amber">completed</div>
+            </div>
+            <div class="readout-row">
+              <div class="label">focus</div>
+              <div class="value">agentic systems · memory</div>
+              <div class="badge amber">primary</div>
+            </div>
+            <div class="readout-row">
+              <div class="label">domain</div>
+              <div class="value">llm agents · cv · gnns</div>
+              <div class="badge">core</div>
+            </div>
+            <div class="readout-row">
+              <div class="label">stack</div>
+              <div class="value">python · pytorch · pydantic-ai</div>
+              <div class="badge">v3</div>
+            </div>
+            <div class="readout-row">
+              <div class="label">awards</div>
+              <div class="value">VISTA scholarship</div>
+              <div class="badge green">grant</div>
+            </div>
+            <div class="readout-row">
+              <div class="label">channel</div>
+              <div class="value">post-agentic era</div>
+              <div class="badge amber">2026</div>
+            </div>
+          </div>
+        </aside>
 
-        <section class="home_gallery_area p_120">
-        	<div class="container">
-        		<div class="main_title">
-        			<h2>Some of My Projects</h2>
-        			<p>Feel free to contact me if you have any question :)</p>
-        		</div> 
-				<div class="isotope_fillter">
-        			<ul class="gallery_filter list">
-						<li class="active" data-filter="*"><a href="#">All</a></li>
-						<li data-filter=".ComputerVision"><a href="#">Computer Vision</a></li>
-						<li data-filter=".NLP"><a href="#">NLP</a></li>
-						<li data-filter=".Generative"><a href="#">Generative</a></li>
-						<li data-filter=".LLMs"><a href="#">LLMs</a></li>
-					</ul>
-        		</div>
-        	</div>
-        	<div class="container">
-        		<div class="gallery_f_inner row imageGallery1">
-					<div class="col-lg-4 col-md-4 col-sm-6 Generative LLMs NLP">
-        				<div class="h_gallery_item">
-							<a href="https://nimavahdat.github.io/Llama_RAG_System" target="_blank">
-								<div class="g_img_item">
-									<img class="img-fluid" src="img/gallery/llama.png" alt="">
-								</div>
-								<div class="g_item_text">
-									<h4>LLaMA-based RAG System</h4>
-									<p>Provide Intelligent Answers to User Queries</p>
-								</div>
-							</a>
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-md-4 col-sm-6 NLP LLMs"> 
-        				<div class="h_gallery_item">
-							<a href="https://nimavahdat.github.io/BART_Summarization_Rating" target="_blank">
-								<div class="g_img_item">
-									<img class="img-fluid" src="img/gallery/BART_Summarization_Rating.jpg" alt="Multitask BART model for Amazon review summarization and rating prediction with a Gradio interface and Flask API.">
-								</div>
-								<div class="g_item_text">
-									<h4>Review Summarization and Rating</h4>
-									<p>Amazon Review Summarization and Rating with BART</p>
-								</div>
-							</a>
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-md-4 col-sm-6 ComputerVision">
-        				<div class="h_gallery_item">
-							<a href="https://nimavahdat.github.io/FoodSeg_mask2former" target="_blank">
-								<div class="g_img_item">
-									<img class="img-fluid" src="img/gallery/FoodSeg_mask2former.jpg" alt="">
+        <aside class="panel feed-panel" style="grid-column: 2;">
+          <div class="panel-head">
+            <div><span class="id">▸</span> /telemetry</div>
+            <div><span class="feed-dot"></span> <span id="feed-meta">streaming</span></div>
+          </div>
+          <div class="feed-body" id="feed-body" aria-hidden="true"></div>
+        </aside>
 
-								</div>
-								<div class="g_item_text">
-									<h4>FoodSeg103 Semantic Segmentation</h4>
-									<p>Fine-Tuning Mask2Former for Semantic Segmentation</p>
-								</div>
-							</a>
-        				</div>
-        			</div>
-        			 <div class="col-lg-4 col-md-4 col-sm-6">
-        				<div class="h_gallery_item">
-							<a href="https://nimavahdat.github.io/ETH_Price_Prediction" target="_blank">
-								<div class="g_img_item">
-									<img class="img-fluid" src="img/gallery/eth.jpg" alt="">
-								</div>
-								<div class="g_item_text">
-									<h4>ETH Price Prediction</h4>
-									<p>Predict Ethereum (ETH) prices using LSTM and GRU neural networks.</p>
-								</div>
-							</a>
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-md-4 col-sm-6 NLP">
-        				<div class="h_gallery_item">
-							<a href="https://nimavahdat.github.io/IMDB_Sentiment_Analysis" target="_blank"> 
-								<div class="g_img_item">
-									<img class="img-fluid" src="img/gallery/imdb.jpg" alt="">
-									
-								</div>
-								<div class="g_item_text">
-									<h4>IMDB Sentiment Analysise</h4>
-									<p>Sentiment analysis with RNN, LSTM, and GRU on the IMDB dataset</p>
-								</div>
-							</a>
-        				</div>
-        			</div>
-        			<div class="col-lg-4 col-md-4 col-sm-6 ComputerVision">
-        				<div class="h_gallery_item">
-							<a href="https://nimavahdat.github.io/DeepSNN-Framework" target="_blank"> 
-								<div class="g_img_item">
-									<img class="img-fluid" src="img/gallery/deepsnn.png" alt="">
-								</div>
-								<div class="g_item_text">
-									<h4>DeepSNN Framework</h4>
-									<p>Advanced tool for Building Spiking Neural Networks</p>
-								</div>
-							</a>
-        				</div>
-        			</div> 
-        		</div>
-        		<div class="more_btn">
-        			<a class="main_btn" href="https://github.com/NimaVahdat" target="_blank">Load More Projects</a>
-        		</div>
-        	</div>
-        </section>
-        <!--================End Home Gallery Area =================-->
-        
-        <!--================Testimonials Area =================-->
- <!--        <section class="testimonials_area p_120">
-        	<div class="container">
-        		<div class="main_title">
-        			<h2>Testimonials</h2>
-        			<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see some for as low as $.17 each.</p>
-        		</div>
-        		<div class="testi_inner">
-					<div class="testi_slider owl-carousel">
-						<div class="item">
-							<div class="testi_item">
-								<p>As conscious traveling Paup ers we must always be oncerned about our dear Mother Earth. If you think about it, you travel across her face</p>
-								<h4>Fanny Spencer</h4>
-								<a href="#"><i class="fa fa-star"></i></a>
-								<a href="#"><i class="fa fa-star"></i></a>
-								<a href="#"><i class="fa fa-star"></i></a>
-								<a href="#"><i class="fa fa-star"></i></a>
-								<a href="#"><i class="fa fa-star-half-o"></i></a>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testi_item">
-								<p>As conscious traveling Paup ers we must always be oncerned about our dear Mother Earth. If you think about it, you travel across her face</p>
-								<h4>Fanny Spencer</h4>
-								<a href="#"><i class="fa fa-star"></i></a>
-								<a href="#"><i class="fa fa-star"></i></a>
-								<a href="#"><i class="fa fa-star"></i></a>
-								<a href="#"><i class="fa fa-star"></i></a>
-								<a href="#"><i class="fa fa-star-half-o"></i></a>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testi_item">
-								<p>As conscious traveling Paup ers we must always be oncerned about our dear Mother Earth. If you think about it, you travel across her face</p>
-								<h4>Fanny Spencer</h4>
-								<a href="#"><i class="fa fa-star"></i></a>
-								<a href="#"><i class="fa fa-star"></i></a>
-								<a href="#"><i class="fa fa-star"></i></a>
-								<a href="#"><i class="fa fa-star"></i></a>
-								<a href="#"><i class="fa fa-star-half-o"></i></a>
-							</div>
-						</div>
-					</div>
-        		</div>
-        	</div>
-        </section> -->
-        <!--================End Testimonials Area =================-->
-        
-        <!--================Footer Area =================-->
-        <footer class="footer_area p_120">
-        	<div class="container">
-        		<div class="row footer_inner">
-        			<div class="col-lg-5 col-sm-6">
-        				<aside class="f_widget ab_widget">
-        					<div class="f_title">
-        						<h3><em>I just want you to remember that,</em></h3>
-        					</div>
-        					<blockquote>
-							    <p><em>"Average is the enemy<br>
-							    Success is your responsibility and<br>
-							    Change can take place in an instant.<br>
-							    If, you are willing to flip the switch."</em></p>
-							    <footer>- Bedros Keuilian</footer>
-							</blockquote><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-<p style="font-size: xx-small; text-align: center;">
-    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-</p>
+      </section>
 
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-        				</aside>
-        			</div>
-        			<div class="col-lg-5 col-sm-6">
-        				<aside class="f_widget social_widget">
-        					<div class="f_title">
-        						<h3>Follow Me</h3>
-        					</div>
-        					<p>Let us be social</p>
-        					<ul class="list">
-        						<li><a href="https://github.com/NimaVahdat" target="_blank"><i class="fa fa-github"></i></a></li>
-								<li><a href="https://www.linkedin.com/in/nima-vahdat-a220654a/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-        					</ul>
-        				</aside>
-        			</div>
-        			<div class="col-lg-2">
-        				
-        			</div>
-        		</div>
-        	</div>
-        </footer>
-        <!--================End Footer Area =================-->
-        
-        
-        
-        
-        
-        
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/popper.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/stellar.js"></script>
-        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
-        <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-        <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
-        <script src="vendors/isotope/isotope.pkgd.min.js"></script>
-        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-        <script src="vendors/popup/jquery.magnific-popup.min.js"></script>
-        <script src="js/jquery.ajaxchimp.min.js"></script>
-        <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
-        <script src="vendors/counter-up/jquery.counterup.min.js"></script>
-        <script src="js/mail-script.js"></script>
-        <script src="js/theme.js"></script>
-    </body>
+      <!-- ============================== Research ============================== -->
+      <section class="section" id="research" aria-labelledby="r-title">
+        <div class="section-head">
+          <div class="index">02 //</div>
+          <div class="title" id="r-title">research signal</div>
+          <div class="rule"></div>
+          <div class="meta">behavioral_memory_for_llm_agents</div>
+        </div>
+
+        <article class="research-callout">
+          <div class="glyph">◈</div>
+          <div>
+            <h3 class="title">behavioral memory for llm agents</h3>
+            <p class="desc">
+              <strong>forge_dc</strong> — a four-layer memory system that gets agents to actually follow what users tell them. Trigger-anchored progressive injection. <strong>dc-bench</strong> — the first benchmark for behavioral memory: 46 real-trace scenarios across 19 dimensions. <em>paper in preparation.</em>
+            </p>
+          </div>
+          <div class="stat">
+            <div class="num">97<span style="color:var(--fg-3); font-size:22px;">%</span></div>
+            <div class="lab">compliance</div>
+          </div>
+        </article>
+
+        <div class="metrics">
+          <div class="metric">
+            <div class="num">+90</div>
+            <div class="lab">point gain vs. baseline</div>
+            <div class="delta">▲ from 7% → 97%</div>
+          </div>
+          <div class="metric">
+            <div class="num">~9×</div>
+            <div class="lab">context-token reduction</div>
+            <div class="delta">vs. hybrid rag</div>
+          </div>
+          <div class="metric">
+            <div class="num">46</div>
+            <div class="lab">benchmark scenarios</div>
+            <div class="delta">19 behavioral dims</div>
+          </div>
+          <div class="metric">
+            <div class="num">+25</div>
+            <div class="lab">"only rules rule" gap</div>
+            <div class="delta">directive vs. evidence</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== Work ============================== -->
+      <section class="section" id="work" aria-labelledby="w-title">
+        <div class="section-head">
+          <div class="index">03 //</div>
+          <div class="title" id="w-title">field operations</div>
+          <div class="rule"></div>
+          <div class="meta">/work</div>
+        </div>
+
+        <div class="work-grid">
+
+          <article class="work-card">
+            <div class="status"><span class="dot cyan"></span> active</div>
+            <div class="role-line"><span class="arrow">▸</span><span class="role">AI Research Engineer · R&amp;D</span></div>
+            <p class="org">Georgian <span class="at">·</span> Toronto</p>
+            <p class="summary">
+              Building <strong>behavioral memory</strong> for llm agents (<em>forge_dc</em>, <em>dc-bench</em>), the platform's <strong>MCP server</strong> (8 production integrations), <strong>OpenGeorge</strong> context engine, and a multi-agent blog-post pipeline. Discovered the <em>"only rules rule"</em> finding — paper in prep.
+            </p>
+            <div class="tags">
+              <span class="tag">pydantic-ai</span><span class="tag">langgraph</span><span class="tag">fastmcp</span><span class="tag">postgres</span><span class="tag">terraform</span><span class="tag">gcp</span>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <div class="status amber"><span class="dot amber"></span> completed</div>
+            <div class="role-line"><span class="arrow">▸</span><span class="role">Graduate Researcher · GNNs</span></div>
+            <p class="org">York University <span class="at">·</span> Elder Lab</p>
+            <p class="summary">
+              Leading a graph-based framework for <strong>contour grouping</strong> — fusing CNN features with multi-step message passing for local + global shape context. Built a synthetic dataset of <strong>100k+ shapes</strong> for pretraining. Distributed PyTorch + Hugging Face Accelerate.
+            </p>
+            <div class="tags">
+              <span class="tag">pytorch</span><span class="tag">gnn</span><span class="tag">cnn</span><span class="tag">message-passing</span><span class="tag">accelerate</span>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <div class="status amber"><span class="dot amber"></span> completed</div>
+            <div class="role-line"><span class="arrow">▸</span><span class="role">Applied AI Researcher · RAG</span></div>
+            <p class="org">VISTA Trainee <span class="at">·</span> York University</p>
+            <p class="summary">
+              Built a local <strong>RAG system</strong> with LLaMA for query answering and summarization. ChromaDB retrieval, real-time scraping, prompt-optimization strategies. Production-ready Flask API + Gradio interface for evaluation.
+            </p>
+            <div class="tags">
+              <span class="tag">llama</span><span class="tag">langchain</span><span class="tag">chromadb</span><span class="tag">flask</span><span class="tag">gradio</span>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <div class="status dim"><span class="dot" style="background:var(--fg-3)"></span> archived</div>
+            <div class="role-line"><span class="arrow">▸</span><span class="role">Teaching Assistant · Python</span></div>
+            <p class="org">York University</p>
+            <p class="summary">
+              Taught and mentored <strong>200+ students</strong> across multiple programming courses; led labs and one-on-one sessions. Introduced test-driven development and algorithm tracing into the lab curriculum.
+            </p>
+            <div class="tags">
+              <span class="tag">python</span><span class="tag">pedagogy</span><span class="tag">tdd</span>
+            </div>
+          </article>
+
+          <article class="work-card" style="grid-column: 1 / -1;">
+            <div class="status dim"><span class="dot" style="background:var(--fg-3)"></span> archived</div>
+            <div class="role-line"><span class="arrow">▸</span><span class="role">AI Research Intern · Spiking Neural Networks</span></div>
+            <p class="org">University of Tehran</p>
+            <p class="summary">
+              Built the <strong>DeepSNN framework</strong> in PyTorch for simulating spiking neural networks — CNN layers, pooling, neural-encoding methods. Earlier life: bachelor's research under the bio-inspired computation umbrella.
+            </p>
+            <div class="tags">
+              <span class="tag">pytorch</span><span class="tag">snn</span><span class="tag">neuromorphic</span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ============================== Projects ============================== -->
+      <section class="section" id="projects" aria-labelledby="p-title">
+        <div class="section-head">
+          <div class="index">04 //</div>
+          <div class="title" id="p-title">projects</div>
+          <div class="rule"></div>
+          <div class="meta">/projects</div>
+        </div>
+
+        <div class="proj-list">
+
+          <div class="proj-row">
+            <div class="proj-id">P-01</div>
+            <div class="proj-name">Nutrition Fact AR Reader</div>
+            <div class="proj-desc">Real-time AR system; YOLOv8-seg fine-tuned to <strong>95% mAP@50</strong>. PaddleOCR + local LLM (Ollama) for structured parsing. Unity AR overlay with comparison &amp; recommendations.</div>
+            <div class="proj-stack">yolov8 · paddleocr · unity · ollama · flask</div>
+            <div class="proj-link"><a href="https://github.com/NimaVahdat/Nutrition_Fact_AR_Reader" target="_blank" rel="noopener">repo →</a></div>
+          </div>
+
+          <div class="proj-row">
+            <div class="proj-id">P-02</div>
+            <div class="proj-name">BART PEFT Multitask</div>
+            <div class="proj-desc">Fine-tuned BART with PEFT for joint <strong>summarization + sentiment</strong> classification under a shared encoder-decoder. Deployed via Flask API and Gradio for real-time inference.</div>
+            <div class="proj-stack">bart · peft · hugging face · flask · gradio</div>
+            <div class="proj-link"><a href="https://github.com/NimaVahdat/BART-Summarization-Rating" target="_blank" rel="noopener">repo →</a></div>
+          </div>
+
+          <div class="proj-row">
+            <div class="proj-id">P-03</div>
+            <div class="proj-name">FoodSeg103 · Mask2Former</div>
+            <div class="proj-desc">Fine-tuned Mask2Former on FoodSeg103 (<strong>103 categories</strong>) via transfer learning + hyperparameter tuning, boosting mIoU. Interactive Gradio app.</div>
+            <div class="proj-stack">vision transformers · semantic seg · hugging face</div>
+            <div class="proj-link"><a href="https://github.com/NimaVahdat/FoodSeg_mask2former" target="_blank" rel="noopener">repo →</a></div>
+          </div>
+
+          <div class="proj-row">
+            <div class="proj-id">P-04</div>
+            <div class="proj-name">Cross-Modal Image Retrieval</div>
+            <div class="proj-desc">Cross-modal image-text retrieval combining VGG16 visual features with Word2Vec embeddings, aligned via cosine similarity over <strong>10,000+ images</strong>.</div>
+            <div class="proj-stack">pytorch · vgg16 · word2vec · cv+nlp</div>
+            <div class="proj-link"><a href="https://github.com/NimaVahdat/Image_Retrieval_System" target="_blank" rel="noopener">repo →</a></div>
+          </div>
+
+          <div class="proj-row">
+            <div class="proj-id">P-05</div>
+            <div class="proj-name">FEAT · Few-Shot Learning</div>
+            <div class="proj-desc">Implementation of FEAT (Few-Shot Embedding Adaptation) with a custom meta-learning framework and data loaders; validated on standard few-shot benchmarks.</div>
+            <div class="proj-stack">pytorch · meta-learning · tensorboardx</div>
+            <div class="proj-link"><a href="https://github.com/NimaVahdat/Few-Shot-Learning" target="_blank" rel="noopener">repo →</a></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================== Stack ============================== -->
+      <section class="section" id="stack" aria-labelledby="s-title">
+        <div class="section-head">
+          <div class="index">05 //</div>
+          <div class="title" id="s-title">tooling readout</div>
+          <div class="rule"></div>
+          <div class="meta">/stack</div>
+        </div>
+
+        <div class="stack-grid">
+          <div class="stack-cell">
+            <div class="label">— languages</div>
+            <div class="items">
+              <span class="item hi">python</span>
+              <span class="item">c / c++</span>
+              <span class="item">sql</span>
+              <span class="item">bash</span>
+              <span class="item">hcl</span>
+              <span class="item">assembly</span>
+            </div>
+          </div>
+
+          <div class="stack-cell">
+            <div class="label">— ml / ai</div>
+            <div class="items">
+              <span class="item hi">pytorch</span>
+              <span class="item">tensorflow</span>
+              <span class="item hi">hugging face</span>
+              <span class="item hi">pydantic-ai</span>
+              <span class="item hi">langgraph</span>
+              <span class="item">langchain</span>
+              <span class="item">opencv</span>
+              <span class="item">scikit-learn</span>
+            </div>
+          </div>
+
+          <div class="stack-cell">
+            <div class="label">— agentic ai</div>
+            <div class="items">
+              <span class="item hi">multi-agent</span>
+              <span class="item hi">tool use</span>
+              <span class="item hi">mcp</span>
+              <span class="item">claude · gpt · llama</span>
+              <span class="item">lora / peft</span>
+              <span class="item">rag</span>
+              <span class="item hi">behavioral memory</span>
+              <span class="item">prompt compilation</span>
+              <span class="item">benchmark design</span>
+            </div>
+          </div>
+
+          <div class="stack-cell">
+            <div class="label">— mlops / infra</div>
+            <div class="items">
+              <span class="item">docker</span>
+              <span class="item">kubernetes</span>
+              <span class="item hi">terraform</span>
+              <span class="item">ci/cd</span>
+              <span class="item">faiss</span>
+              <span class="item">pinecone</span>
+              <span class="item">chromadb</span>
+              <span class="item">mlflow · w&amp;b</span>
+              <span class="item">opentelemetry</span>
+              <span class="item">langfuse</span>
+            </div>
+          </div>
+
+          <div class="stack-cell">
+            <div class="label">— cloud</div>
+            <div class="items">
+              <span class="item hi">gcp</span>
+              <span class="item">vertex ai</span>
+              <span class="item">cloud run</span>
+              <span class="item">bigquery</span>
+              <span class="item">aws</span>
+              <span class="item">bedrock</span>
+              <span class="item">azure ai</span>
+            </div>
+          </div>
+
+          <div class="stack-cell">
+            <div class="label">— dev tools</div>
+            <div class="items">
+              <span class="item hi">claude code</span>
+              <span class="item">anthropic sdk</span>
+              <span class="item hi">mcp</span>
+              <span class="item">sqlalchemy</span>
+              <span class="item">alembic</span>
+              <span class="item">slack bolt</span>
+              <span class="item">apscheduler</span>
+              <span class="item">uv</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== Terminal ============================== -->
+      <section class="section" id="terminal-section" aria-labelledby="t-title">
+        <div class="section-head">
+          <div class="index">06 //</div>
+          <div class="title" id="t-title">interactive terminal</div>
+          <div class="rule"></div>
+          <div class="meta">type 'help' to begin</div>
+        </div>
+
+        <div class="terminal" id="terminal">
+          <div class="terminal-head">
+            <div class="lights">
+              <span class="light cyan"></span>
+              <span class="light amber"></span>
+              <span class="light"></span>
+            </div>
+            <div class="title">nv-shell — bash 5.2 · session 0x7f2a</div>
+            <div class="hint"><kbd>↑</kbd>history <kbd>tab</kbd>complete <kbd>/</kbd>focus</div>
+          </div>
+          <div class="terminal-output" id="term-output" role="log" aria-live="polite"></div>
+          <div class="terminal-input-row">
+            <span class="pfx">nima<span class="at">@</span>nv<span class="path">:~$</span></span>
+            <input id="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="terminal input">
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div>// nv-os 3.2.1 · hand-typed in vim, deployed on github pages</div>
+      <div>
+        <a href="https://github.com/NimaVahdat" target="_blank" rel="noopener">github</a> &nbsp;·&nbsp;
+        <a href="https://www.linkedin.com/in/nima-vahdat-a220654a/" target="_blank" rel="noopener">linkedin</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/terminal.js?v=2"></script>
+  <script src="js/github.js?v=1"></script>
+</body>
 </html>
