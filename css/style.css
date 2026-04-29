@@ -65,12 +65,9 @@ html, body {
 }
 
 /* ============================== Custom cursor ============================== */
-/* Crosshair reticle in cyan — sits centered on the hot point */
-html, body {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><g fill='none' stroke='%2300d4d4' stroke-width='1.25' shape-rendering='crispEdges'><circle cx='14' cy='14' r='6.5'/><line x1='14' y1='1' x2='14' y2='8'/><line x1='14' y1='20' x2='14' y2='27'/><line x1='1' y1='14' x2='8' y2='14'/><line x1='20' y1='14' x2='27' y2='14'/></g><circle cx='14' cy='14' r='1' fill='%23ffb300'/></svg>") 14 14, crosshair;
-}
+/* Default cursor: system. Custom cursor only on interactive elements. */
 
-/* Pointer (interactive) cursor — amber filled chevron */
+/* Pointer (interactive) cursor — amber filled chevron with cyan tip */
 a, button, .chip, .work-card, .proj-row, .terminal, .terminal *, [role="button"], summary, label[for], input[type="submit"], input[type="button"] {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'><g fill='none' stroke='%23ffb300' stroke-width='1.5' shape-rendering='crispEdges'><path d='M4 2 L4 20 L9 16 L12 23 L15 22 L12 15 L19 15 Z' fill='%23ffb300' fill-opacity='0.18'/></g><circle cx='4' cy='2' r='1.2' fill='%2300d4d4'/></svg>") 4 2, pointer;
 }
@@ -517,6 +514,10 @@ a:hover {
 
 .name {
   font-family: var(--display);
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.4em;
+  row-gap: 0.05em;
   font-size: var(--fs-3xl);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -1170,4 +1171,142 @@ a:hover {
   .name { font-size: 48px; }
   .panel-body { padding: 18px; }
   .identity-body { padding: 18px; }
+}
+
+/* ============================== Mobile pass (≤560px) ============================== */
+@media (max-width: 560px) {
+  :root {
+    --fs-base: 12.5px;
+    --fs-sm:   11px;
+    --fs-xs:   10px;
+    --fs-md:   13.5px;
+    --fs-lg:   15px;
+    --fs-xl:   18px;
+    --fs-2xl:  26px;
+    --fs-3xl:  40px;
+  }
+  .shell { padding: 0 14px 80px; }
+
+  /* Status bar: collapse to 2 cells */
+  .statusbar {
+    font-size: 9.5px;
+    height: 28px;
+  }
+  .statusbar-cell { padding: 0 10px; white-space: nowrap; }
+  .statusbar-cell:not(.brand):not(.clock):not(.flex) { display: none; }
+  .statusbar-cell.flex { display: none; }
+
+  /* Hero — single column, less gap */
+  .hero { gap: 12px; margin-top: 6px; grid-template-columns: 1fr !important; }
+  .hero > .identity-panel,
+  .hero > .readout-panel,
+  .hero > .feed-panel {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  /* Identity body — portrait shrinks, content stacks */
+  .identity-body {
+    grid-template-columns: 1fr !important;
+    padding: 16px;
+    gap: 16px;
+  }
+  .portrait-frame {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  /* Name — stack on two lines naturally */
+  .name {
+    font-size: 40px;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+  }
+  .name .name-line { display: block; }
+
+  .tagline { font-size: 13px; max-width: none; }
+  .handle-row { flex-wrap: wrap; gap: 8px; }
+  .chip { font-size: 10px; padding: 5px 9px; }
+
+  /* Hide signal grid on mobile */
+  .signal-grid { display: none !important; }
+
+  /* Panel chrome */
+  .panel-head { padding: 8px 12px; font-size: 9px; flex-wrap: wrap; gap: 4px 10px; }
+  .panel-body { padding: 14px; }
+
+  /* Readout rows */
+  .readout-row {
+    grid-template-columns: 78px 1fr auto !important;
+    gap: 8px;
+    padding: 10px 14px;
+  }
+  .readout-row .label { font-size: 9px; }
+  .readout-row .value { font-size: 12px; word-break: break-word; }
+  .readout-row .badge { font-size: 8.5px; padding: 2px 6px; white-space: nowrap; }
+
+  /* Telemetry feed — tighter columns */
+  .feed-panel .feed-body { padding: 8px 12px 10px; min-height: 140px; }
+  .feed-line {
+    grid-template-columns: 50px 64px 1fr !important;
+    font-size: 10px;
+    gap: 8px;
+  }
+  .feed-line .val { font-size: 10px; }
+
+  /* Section heads */
+  .section-title { font-size: 11px; }
+  .section-head { padding: 10px 0; }
+
+  /* Work cards */
+  .work-card { padding: 14px; }
+  .work-card .role-line { padding-right: 0; }
+  .work-card .status {
+    position: static !important;
+    margin-bottom: 8px;
+  }
+  .work-card .role { font-size: 14px; }
+  .work-card .org { font-size: 11px; }
+  .work-card .summary { font-size: 12px; }
+
+  /* Project rows */
+  .proj-row {
+    grid-template-columns: 1fr !important;
+    gap: 4px;
+    padding: 12px 14px;
+  }
+  .proj-row .proj-num { display: none; }
+  .proj-row .proj-name { font-size: 13px; }
+  .proj-row .proj-desc { font-size: 11.5px; }
+  .proj-row .proj-link { margin-top: 4px; }
+
+  /* Stack grid */
+  .stack-grid { grid-template-columns: 1fr !important; gap: 10px; }
+  .stack-cell { padding: 12px; }
+
+  /* Research callout / metrics */
+  .research-callout { padding: 16px; grid-template-columns: 1fr !important; }
+  .research-callout .stat { text-align: left !important; min-width: 0 !important; }
+  .metrics { grid-template-columns: 1fr !important; gap: 8px; }
+
+  /* Terminal */
+  .terminal { font-size: 11px; }
+  .term-output { max-height: 240px; }
+  .term-input { font-size: 12px; }
+
+  /* Footer */
+  footer { padding: 20px 0; font-size: 10px; }
+  footer > div { display: block; }
+
+  /* Boot screen */
+  #boot pre { font-size: 9px !important; }
+}
+
+/* Tiny phones (≤380px) */
+@media (max-width: 380px) {
+  .name { font-size: 34px; }
+  .shell { padding: 0 10px 70px; }
+  .panel-body { padding: 12px; }
+  .identity-body { padding: 12px; }
+  .feed-line { grid-template-columns: 44px 56px 1fr !important; font-size: 9.5px; }
 }

@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
 
@@ -25,11 +25,11 @@
 
     <!-- Status bar -->
     <div class="statusbar" role="status" aria-label="system status">
-      <div class="statusbar-cell"><span class="dot blink"></span> NV-OS // 3.2.1</div>
+      <div class="statusbar-cell brand"><span class="dot blink"></span> NV-OS // 3.2.1</div>
       <div class="statusbar-cell"><span class="dot cyan"></span> link: stable</div>
       <div class="statusbar-cell"><span class="dot amber"></span> agent runtime: online</div>
       <div class="statusbar-cell flex"><span id="uptime" class="mono-num">T+00:00</span></div>
-      <div class="statusbar-cell right"><span id="clock" class="mono-num">--:--:-- UTC</span></div>
+      <div class="statusbar-cell right clock"><span id="clock" class="mono-num">--:--:-- UTC</span></div>
     </div>
 
     <main>
@@ -58,7 +58,7 @@
             <div class="identity-text">
               <div class="kicker"><span class="bracket">[</span> operator profile <span class="bracket">]</span></div>
               <h1 class="name" id="hero-name">
-                NIMA<br>VAHDAT
+                <span class="name-line">NIMA</span><span class="name-line">VAHDAT</span>
               </h1>
               <p class="tagline">
                 ai research engineer building <span class="accent">memory</span> and <span class="accent">tooling</span> for llm agents — and a graduate researcher working on graph neural networks for perceptual organization.
