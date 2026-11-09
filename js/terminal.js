@@ -144,7 +144,6 @@
             `<span class="am">pwc</span>               senior ai engineer · agentic      <span class="ok">[active]</span>`,
             `<span class="am">georgian</span>          ai research engineer (r&d)        <span class="dim">[completed]</span>`,
             `<span class="am">york / elder lab</span>  graduate researcher · gnns         <span class="dim">[completed]</span>`,
-            `<span class="am">vista trainee</span>     applied ai researcher · rag         <span class="dim">[completed]</span>`,
             `<span class="am">york</span>              teaching assistant · python         <span class="dim">[completed]</span>`,
             `<span class="am">univ. of tehran</span>   ai research intern · spiking nets   <span class="dim">[completed]</span>`
           ]);
