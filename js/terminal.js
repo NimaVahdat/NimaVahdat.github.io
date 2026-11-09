@@ -126,9 +126,9 @@
       desc: 'identity readout',
       run: () => printLines([
         `<span class="key">nima vahdat</span>`,
-        `<span class="dim">└─</span> ai research engineer · graduate researcher`,
+        `<span class="dim">└─</span> senior ai engineer @ pwc · toronto`,
         `<span class="dim">└─</span> agentic systems, behavioral memory, computer vision`,
-        `<span class="dim">└─</span> currently building memory + tooling for llm agents`
+        `<span class="dim">└─</span> currently building self-improving agentic frameworks`
       ])
     },
     ls: {
@@ -141,7 +141,8 @@
           ]);
         } else if (t === 'work') {
           printLines([
-            `<span class="am">georgian</span>          ai research engineer (r&d)        <span class="ok">[active]</span>`,
+            `<span class="am">pwc</span>               senior ai engineer · agentic      <span class="ok">[active]</span>`,
+            `<span class="am">georgian</span>          ai research engineer (r&d)        <span class="dim">[completed]</span>`,
             `<span class="am">york / elder lab</span>  graduate researcher · gnns         <span class="dim">[completed]</span>`,
             `<span class="am">vista trainee</span>     applied ai researcher · rag         <span class="dim">[completed]</span>`,
             `<span class="am">york</span>              teaching assistant · python         <span class="dim">[completed]</span>`,
