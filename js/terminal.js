@@ -127,7 +127,7 @@
       run: () => printLines([
         `<span class="key">nima vahdat</span>`,
         `<span class="dim">└─</span> senior ai engineer @ pwc · toronto`,
-        `<span class="dim">└─</span> agentic systems, behavioral memory, computer vision`,
+        `<span class="dim">└─</span> ai agent memory · continual learning · world models`,
         `<span class="dim">└─</span> currently building self-improving agentic frameworks`
       ])
     },
@@ -288,11 +288,12 @@
       run: () => { goto('projects'); print(`<span class="dim">→ scrolled to /projects</span>`); }
     },
     open: {
-      desc: 'open a link (open paper | open github | open linkedin | open email)',
+      desc: 'open a link (open paper | open scholar | open github | open linkedin)',
       run: (args) => {
         const t = (args[0] || '').toLowerCase();
         const map = {
           github: 'https://github.com/NimaVahdat',
+          scholar: 'https://scholar.google.com/citations?hl=en&user=cFmtpaQAAAAJ',
           linkedin: 'https://www.linkedin.com/in/nima-vahdat-a220654a/',
           paper: 'decision-context/',
           arxiv: 'https://arxiv.org/abs/2611.08644',
