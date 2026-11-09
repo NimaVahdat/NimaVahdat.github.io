@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Decision Context: Persistent Behavioral Learning for AI Agents — NeurIPS 2026 PALM workshop. forge_dc compiles corrections into RULE directives and reaches 95% compliance on DC-Bench, up from 55% with naive retrieval.">
+  <meta name="author" content="Nima Vahdat">
+  <meta name="theme-color" content="#07090c">
+  <title>decision context // paper</title>
+
+  <meta property="og:title" content="Decision Context: Persistent Behavioral Learning for AI Agents">
+  <meta property="og:description" content="NeurIPS 2026 PALM workshop. 95% compliance on DC-Bench, up from 55% with naive retrieval, at ~10x fewer injected tokens.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://nimavahdat.github.io/decision-context/">
+
+  <link rel="icon" href="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'&gt;&lt;rect width='32' height='32' fill='%2307090c'/&gt;&lt;text x='50%25' y='62%25' font-family='monospace' font-size='18' font-weight='700' fill='%2300d4d4' text-anchor='middle'&gt;nv&lt;/text&gt;&lt;/svg&gt;">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=8">
+
+  <style>
+    /* ===== page-local: paper landing ===== */
+    .app { grid-template-rows: auto auto 1fr auto; }
+
+    .backbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+      border: 1px solid var(--line-0); background: var(--bg-1);
+      padding: 8px 12px; font-size: var(--fs-xs);
+      color: var(--fg-2); letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .backbar a { color: var(--cyan); text-decoration: none; }
+    .backbar a:hover { text-decoration: underline; }
+
+    .paper-head { padding: 26px 22px 24px; }
+    .paper-title {
+      font-size: clamp(22px, 4.2vw, 40px);
+      line-height: 1.18; margin: 10px 0 18px;
+      font-weight: 800; letter-spacing: -0.015em; color: var(--fg-0);
+    }
+    .paper-title .sub { display: block; color: var(--cyan); }
+
+    .authors { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-bottom: 6px; font-size: var(--fs-md); }
+    .authors .who { color: var(--fg-0); font-weight: 600; }
+    .authors .who sup { color: var(--amber); font-weight: 500; }
+    .affil { color: var(--fg-2); font-size: var(--fs-sm); margin-bottom: 18px; }
+    .affil sup { color: var(--amber); }
+
+    .venue {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--line-2); background: rgba(11,15,20,0.6);
+      padding: 7px 12px; font-size: var(--fs-xs);
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-1);
+      margin-bottom: 20px;
+    }
+    .venue .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+
+    .linkrow { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .abstract { padding: 22px; }
+    .abstract p { margin: 0 0 14px; color: var(--fg-1); max-width: 78ch; line-height: 1.72; }
+    .abstract p:last-child { margin-bottom: 0; }
+    .abstract strong { color: var(--fg-0); }
+
+    /* tables */
+    .tbl-wrap { overflow-x: auto; border: 1px solid var(--line-1); background: rgba(11,15,20,0.4); }
+    table.res { border-collapse: collapse; width: 100%; min-width: 680px; font-size: var(--fs-sm); }
+    table.res th, table.res td { padding: 7px 10px; text-align: right; border-bottom: 1px solid var(--line-0); white-space: nowrap; }
+    table.res th { color: var(--fg-2); font-weight: 600; font-size: var(--fs-xs);
+                   letter-spacing: 0.07em; text-transform: uppercase; background: var(--bg-2); }
+    table.res th:first-child, table.res td:first-child { text-align: left; }
+    table.res td:first-child { color: var(--fg-1); }
+    table.res tbody tr:hover td { background: var(--bg-2); }
+    table.res .ours { color: var(--cyan); font-weight: 700; background: rgba(0,212,212,0.045); }
+    table.res th.ours { color: var(--cyan); }
+    table.res .ctrl { color: var(--fg-3); }
+    table.res .delta { color: var(--green); }
+    table.res tr.total td { border-top: 1px solid var(--line-2); border-bottom: none;
+                            font-weight: 700; color: var(--fg-0); background: rgba(22,28,37,0.5); }
+    .caption { color: var(--fg-2); font-size: var(--fs-xs); line-height: 1.65; margin: 10px 0 26px; max-width: 86ch; }
+    .caption .k { color: var(--fg-1); }
+
+    .tbl-title { display: flex; align-items: baseline; gap: 10px; margin: 0 0 10px; }
+    .tbl-title .n { color: var(--amber); font-size: var(--fs-xs); letter-spacing: 0.1em; text-transform: uppercase; }
+    .tbl-title .t { color: var(--fg-0); font-size: var(--fs-md); font-weight: 600; }
+
+    /* findings */
+    .findings { display: grid; gap: 10px; }
+    .finding { border: 1px solid var(--line-1); background: rgba(11,15,20,0.4); padding: 14px 16px; }
+    .finding .fid { color: var(--amber); font-size: var(--fs-xs); letter-spacing: 0.1em; text-transform: uppercase; }
+    .finding h3 { margin: 6px 0 8px; font-size: var(--fs-md); color: var(--fg-0); font-weight: 600; line-height: 1.4; }
+    .finding p { margin: 0; color: var(--fg-2); font-size: var(--fs-sm); line-height: 1.7; max-width: 92ch; }
+    .finding p .cons { color: var(--cyan); }
+
+    /* code / cite */
+    .cite-wrap { position: relative; }
+    pre.bib {
+      margin: 0; padding: 18px; overflow-x: auto;
+      border: 1px solid var(--line-1); background: var(--bg-1);
+      color: var(--fg-1); font-size: var(--fs-sm); line-height: 1.6;
+    }
+    pre.bib .f { color: var(--cyan); }
+    pre.bib .v { color: var(--fg-0); }
+    .copy-btn {
+      position: absolute; top: 10px; right: 10px;
+      border: 1px solid var(--line-2); background: var(--bg-2); color: var(--fg-1);
+      font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 6px 10px;
+    }
+    .copy-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    .repo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 22px; }
+    .repo-card { border: 1px solid var(--line-1); background: rgba(11,15,20,0.4); padding: 16px; }
+    .repo-card .rname { color: var(--cyan); font-weight: 600; font-size: var(--fs-md); }
+    .repo-card .rdesc { color: var(--fg-2); font-size: var(--fs-sm); line-height: 1.65; margin: 8px 0 12px; }
+    .repo-card a { color: var(--fg-1); text-decoration: none; font-size: var(--fs-sm); border-bottom: 1px solid var(--line-2); }
+    .repo-card a:hover { color: var(--cyan); border-color: var(--cyan); }
+
+    @media (max-width: 760px) {
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .repo-grid { grid-template-columns: 1fr; }
+      .paper-head { padding: 20px 16px; }
+      .abstract { padding: 16px; }
+    }
+    @media (max-width: 420px) {
+      .metrics { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+
+    <div class="backbar">
+      <div><a href="../">&larr; nimavahdat.github.io</a> &nbsp;/&nbsp; decision-context</div>
+      <div>neurips 2026 · palm workshop</div>
+    </div>
+
+    <!-- ============================== Head ============================== -->
+    <article class="panel panel-corners">
+      <span class="c-tr"></span><span class="c-bl"></span>
+      <div class="panel-head">
+        <div><span class="id">▸</span> /paper</div>
+        <div>arXiv:2611.08644</div>
+      </div>
+
+      <div class="paper-head">
+        <div class="kicker"><span class="bracket">[</span> behavioral memory for llm agents <span class="bracket">]</span></div>
+
+        <h1 class="paper-title">
+          Decision Context:
+          <span class="sub">Persistent Behavioral Learning for AI Agents</span>
+        </h1>
+
+        <div class="authors">
+          <span class="who">Nima Vahdat<sup>1,2</sup></span>
+          <span class="who">Pashootan Vaezipoor<sup>1</sup></span>
+        </div>
+        <div class="affil"><sup>1</sup> Georgian AI Lab &nbsp;·&nbsp; <sup>2</sup> currently at PwC</div>
+
+        <div class="venue"><span class="dot"></span> accepted · neurips 2026 workshop on personalized, aligned, long-term memory for ai systems (palm) · paris</div>
+
+        <div class="linkrow">
+          <a class="chip" href="https://arxiv.org/abs/2611.08644" target="_blank" rel="noopener">arxiv</a>
+          <a class="chip" href="https://arxiv.org/pdf/2611.08644" target="_blank" rel="noopener">pdf</a>
+          <a class="chip" href="https://openreview.net/forum?id=7XhMLOsQoA" target="_blank" rel="noopener">openreview</a>
+          <a class="chip" href="https://github.com/NimaVahdat/decision-context-memory" target="_blank" rel="noopener">code</a>
+          <a class="chip" href="https://github.com/NimaVahdat/decision-context-benchmark" target="_blank" rel="noopener">dc-bench</a>
+          <a class="chip" href="#cite">bibtex</a>
+        </div>
+      </div>
+    </article>
+
+    <main>
+
+      <!-- ============================== Abstract ============================== -->
+      <section class="section" id="abstract" aria-labelledby="a-title">
+        <div class="section-head">
+          <div class="index">01 //</div>
+          <div class="title" id="a-title">abstract</div>
+          <div class="rule"></div>
+          <div class="meta">tl;dr</div>
+        </div>
+
+        <div class="panel abstract">
+          <p>
+            LLM agents do not learn from corrections across sessions. A user fixes the same mistake at
+            the start of every conversation. Existing agent memory systems primarily handle facts — preferences,
+            entities, conversational history — rather than procedural knowledge.
+          </p>
+          <p>
+            We present <strong>Forge Decision Context (forge_dc)</strong>, a system that captures behavioral
+            signals from human corrections and self-assessed tool-call failures, compiles them into imperative
+            <strong>RULE</strong> directives, and injects them at the decision points where they apply. We
+            evaluate forge_dc alongside four predecessor approaches on <strong>DC-Bench</strong>, a new benchmark
+            of 71 scenarios across nine behavioral dimensions, built from real executed agent traces in a
+            deterministic mocked-tool environment. forge_dc reaches <strong>95% compliance</strong>, up from
+            <strong>55%</strong> with naive retrieval, while injecting approximately <strong>10x fewer tokens</strong>
+            per query.
+          </p>
+          <p>
+            Across the five-stage progression, the strongest systems represent behavioral memory as explicit
+            directives and deliver it at the decision points where it applies. The results identify
+            <strong>representation, activation, and placement</strong> as central design choices for persistent
+            behavioral learning.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================== Headline ============================== -->
+      <section class="section" id="headline" aria-labelledby="h-title">
+        <div class="section-head">
+          <div class="index">02 //</div>
+          <div class="title" id="h-title">headline results</div>
+          <div class="rule"></div>
+          <div class="meta">opus 4.7 · 5 runs/scenario</div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <div class="num">95<span style="color:var(--fg-3); font-size:22px;">%</span></div>
+            <div class="lab">forge_dc compliance</div>
+            <div class="delta">▲ 71 scenarios, mean of 5 runs</div>
+          </div>
+          <div class="metric">
+            <div class="num">+85</div>
+            <div class="lab">points over no-memory control</div>
+            <div class="delta">▲ 10% → 95%</div>
+          </div>
+          <div class="metric">
+            <div class="num">10.7×</div>
+            <div class="lab">fewer injected tokens</div>
+            <div class="delta">159 vs 1,705 (naive)</div>
+          </div>
+          <div class="metric">
+            <div class="num">+46</div>
+            <div class="lab">points over best prior system</div>
+            <div class="delta">memp 49% → forge_dc 95%</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== Results ============================== -->
+      <section class="section" id="results" aria-labelledby="res-title">
+        <div class="section-head">
+          <div class="index">03 //</div>
+          <div class="title" id="res-title">dc-bench results</div>
+          <div class="rule"></div>
+          <div class="meta">71 scenarios · 9 dimensions</div>
+        </div>
+
+        <div class="tbl-title">
+          <span class="n">table 2</span>
+          <span class="t">mean compliance (%) by behavioral dimension</span>
+        </div>
+        <div class="tbl-wrap">
+          <table class="res">
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>ctrl</th><th>mem0</th><th>zep</th><th>awm</th><th>memp</th>
+                <th>naive</th><th>chunk</th><th>hybrid</th><th>lucid</th>
+                <th class="ours">forge</th><th>Δ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Behav. Change (7)</td><td class="ctrl">14</td><td>14</td><td>14</td><td>43</td><td>71</td><td>71</td><td>71</td><td>86</td><td>86</td><td class="ours">86</td><td class="delta">+15</td></tr>
+              <tr><td>Cond. Activation (12)</td><td class="ctrl">8</td><td>0</td><td>12</td><td>49</td><td>40</td><td>53</td><td>76</td><td>80</td><td>84</td><td class="ours">95</td><td class="delta">+42</td></tr>
+              <tr><td>Exception (3)</td><td class="ctrl">67</td><td>67</td><td>67</td><td>67</td><td>100</td><td>67</td><td>100</td><td>87</td><td>87</td><td class="ours">100</td><td class="delta">+33</td></tr>
+              <tr><td>Generalize (3)</td><td class="ctrl">67</td><td>33</td><td>33</td><td>33</td><td>100</td><td>67</td><td>67</td><td>67</td><td>67</td><td class="ours">100</td><td class="delta">+33</td></tr>
+              <tr><td>Implicit Learn. (10)</td><td class="ctrl">0</td><td>0</td><td>0</td><td>0</td><td>10</td><td>10</td><td>20</td><td>0</td><td>78</td><td class="ours">90</td><td class="delta">+80</td></tr>
+              <tr><td>Persistence (10)</td><td class="ctrl">8</td><td>2</td><td>5</td><td>41</td><td>21</td><td>21</td><td>37</td><td>82</td><td>83</td><td class="ours">100</td><td class="delta">+79</td></tr>
+              <tr><td>Recall (9)</td><td class="ctrl">0</td><td>0</td><td>6</td><td>33</td><td>89</td><td>89</td><td>89</td><td>89</td><td>89</td><td class="ours">100</td><td class="delta">+11</td></tr>
+              <tr><td>Scope Precision (8)</td><td class="ctrl">50</td><td>45</td><td>57</td><td>39</td><td>45</td><td>65</td><td>70</td><td>81</td><td>78</td><td class="ours">96</td><td class="delta">+31</td></tr>
+              <tr><td>Temporal Coh. (9)</td><td class="ctrl">7</td><td>11</td><td>0</td><td>25</td><td>47</td><td>81</td><td>69</td><td>75</td><td>79</td><td class="ours">97</td><td class="delta">+16</td></tr>
+              <tr class="total"><td>Overall (71)</td><td class="ctrl">10</td><td>12</td><td>15</td><td>34</td><td>49</td><td>55</td><td>63</td><td>70</td><td>82</td><td class="ours">95</td><td class="delta">+40</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="caption">
+          <span class="k">ctrl</span> = no injection. <span class="k">mem0 / zep</span> are factual-memory baselines;
+          <span class="k">awm / memp</span> are procedural-memory baselines, given the identical seed traces and
+          injection channel so any difference reflects what each system learns. <span class="k">Δ</span> = forge − naive.
+          Agent backbone: Opus 4.7; judge: GPT-4; embeddings: text-embedding-3-small; 5 runs per scenario–approach pair.
+        </p>
+
+        <div class="tbl-title">
+          <span class="n">table 1</span>
+          <span class="t">the five-stage progression</span>
+        </div>
+        <div class="tbl-wrap">
+          <table class="res">
+            <thead>
+              <tr><th>Approach</th><th>Storage</th><th>Self-assess</th><th>Compilation</th><th>Per-tool</th><th class="ours">Avg.</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>doc_naive</td><td>Chunk</td><td>—</td><td>—</td><td>—</td><td class="ours">55%</td></tr>
+              <tr><td>doc_chunk</td><td>Annot. chunk</td><td>—</td><td>—</td><td>—</td><td class="ours">63%</td></tr>
+              <tr><td>hybrid_raw</td><td>Graph</td><td>—</td><td>—</td><td>Evidence</td><td class="ours">70%</td></tr>
+              <tr><td>lucid_dc</td><td>Graph</td><td>Sonnet 4</td><td>—</td><td>Evidence</td><td class="ours">82%</td></tr>
+              <tr class="total"><td>forge_dc</td><td>Graph</td><td>Sonnet 4</td><td>Sonnet 4</td><td>Re-retrieval</td><td class="ours">95%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="caption">
+          Each stage adds one mechanism to the one before it. The jump from <span class="k">lucid_dc</span> to
+          <span class="k">forge_dc</span> is rule compilation plus re-retrieval between tool calls — representation
+          and placement, not more storage.
+        </p>
+
+        <div class="tbl-title">
+          <span class="n">table 3</span>
+          <span class="t">injected tokens vs. efficacy</span>
+        </div>
+        <div class="tbl-wrap">
+          <table class="res">
+            <thead>
+              <tr><th>Approach</th><th>Mean injection tokens</th><th>Efficacy rate</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>mem0</td><td>25</td><td>4.2%</td></tr>
+              <tr><td>zep</td><td>4</td><td>16.1%</td></tr>
+              <tr><td>awm</td><td>1,207</td><td>39.7%</td></tr>
+              <tr><td>memp</td><td>1,545</td><td>52.1%</td></tr>
+              <tr><td>doc_naive</td><td>1,705</td><td>59.4%</td></tr>
+              <tr><td>doc_chunk</td><td>1,063</td><td>64.8%</td></tr>
+              <tr><td>hybrid_raw</td><td>1,651</td><td>72.4%</td></tr>
+              <tr><td>lucid_dc</td><td>1,641</td><td>84.5%</td></tr>
+              <tr class="total"><td>forge_dc</td><td class="ours">159</td><td class="ours">90.7%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="caption">
+          Compiled directives are both the smallest payload among the approaches that work and the most effective
+          one. forge_dc's one-time capture cost (25,185 LLM tokens) is offset by the lowest per-run agent cost
+          (5,621 tokens) — cheaper end-to-end than doc_naive after roughly four queries.
+        </p>
+      </section>
+
+      <!-- ============================== Findings ============================== -->
+      <section class="section" id="findings" aria-labelledby="f-title">
+        <div class="section-head">
+          <div class="index">04 //</div>
+          <div class="title" id="f-title">findings</div>
+          <div class="rule"></div>
+          <div class="meta">each pairs with a design consideration</div>
+        </div>
+
+        <div class="findings">
+          <div class="finding">
+            <div class="fid">finding 01</div>
+            <h3>Directive-form memory produces a recurring compliance advantage — the "Only Rules Rule"</h3>
+            <p>
+              Agents follow compiled behavioral directives more consistently than retrieved descriptive corrections.
+              Behavioral memory has to be optimized for action, not retrieval alone.
+              <span class="cons">Consideration:</span> evaluate whether retrieved memory changes behavior, not only
+              whether the correct text was retrieved.
+            </p>
+          </div>
+          <div class="finding">
+            <div class="fid">finding 02</div>
+            <h3>Format and content rules retrieve differently</h3>
+            <p>
+              Formatting rules ("include USD") have no embedding similarity to the queries they apply to, so pure
+              semantic retrieval misses them at scale.
+              <span class="cons">Consideration:</span> tag rules by type at capture and route them differently at
+              retrieval — embedding similarity is the right primitive for content rules and the wrong one for format rules.
+            </p>
+          </div>
+          <div class="finding">
+            <div class="fid">finding 03</div>
+            <h3>Data-conditional rules need to fire at the decision point</h3>
+            <p>
+              Rules that depend on tool data cannot be evaluated at query time; they have to surface when the
+              triggering data appears.
+              <span class="cons">Consideration:</span> re-retrieve as the agent accumulates context and add newly
+              triggered rules to the system prompt between tool calls.
+            </p>
+          </div>
+          <div class="finding">
+            <div class="fid">finding 04</div>
+            <h3>Adding reasoning to a rule does not help, and sometimes hurts</h3>
+            <p>
+              A variant attaching a one-sentence justification to each rule scored flat or slightly lower than the
+              bare directive on every model tested — given the reason, the model evaluates the directive and
+              sometimes overrides it.
+              <span class="cons">Consideration:</span> do not try to convince the model; extra judgment material
+              invites second-guessing.
+            </p>
+          </div>
+          <div class="finding">
+            <div class="fid">finding 05</div>
+            <h3>The injection channel is part of the design</h3>
+            <p>
+              Channels carry different trust profiles, compete differently with the task for attention, and dilute
+              when several instruction streams share one slot. What works on one model generation is not guaranteed
+              to work on the next.
+              <span class="cons">Consideration:</span> treat each stage's channel as a first-class design decision
+              and re-validate when the model changes.
+            </p>
+          </div>
+          <div class="finding">
+            <div class="fid">finding 06</div>
+            <h3>A memory must not regress the base</h3>
+            <p>
+              Injected guidance can make an agent worse than no memory — a rule that surfaces on a case it does not
+              fit degrades an output that needed no change.
+              <span class="cons">Consideration:</span> learn only from failures and corrections, and default to
+              staying silent when nothing needs to change.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== Code + cite ============================== -->
+      <section class="section" id="cite" aria-labelledby="c-title">
+        <div class="section-head">
+          <div class="index">05 //</div>
+          <div class="title" id="c-title">code &amp; citation</div>
+          <div class="rule"></div>
+          <div class="meta">mit licensed</div>
+        </div>
+
+        <div class="repo-grid">
+          <div class="repo-card">
+            <div class="rname">decision-context-memory</div>
+            <p class="rdesc">
+              All five approaches as self-contained packages — each with its own dependencies, database and
+              docker-compose. Copy one folder out and it runs on its own.
+            </p>
+            <a href="https://github.com/NimaVahdat/decision-context-memory" target="_blank" rel="noopener">github →</a>
+          </div>
+          <div class="repo-card">
+            <div class="rname">decision-context-benchmark</div>
+            <p class="rdesc">
+              DC-Bench: 71 scenarios across 9 behavioral dimensions, control vs. treatment runs, LLM-judged lift.
+              Approach- and provider-agnostic — bring your own memory system with one Python Protocol.
+            </p>
+            <a href="https://github.com/NimaVahdat/decision-context-benchmark" target="_blank" rel="noopener">github →</a>
+          </div>
+        </div>
+
+        <div class="cite-wrap">
+          <button class="copy-btn" id="copy-bib" type="button">copy</button>
+          <pre class="bib" id="bib">@misc{vahdat2026decisioncontext,
+  <span class="f">title</span>         = {<span class="v">Decision Context: Persistent Behavioral Learning for AI Agents</span>},
+  <span class="f">author</span>        = {<span class="v">Nima Vahdat and Pashootan Vaezipoor</span>},
+  <span class="f">year</span>          = {<span class="v">2026</span>},
+  <span class="f">eprint</span>        = {<span class="v">2611.08644</span>},
+  <span class="f">archivePrefix</span> = {<span class="v">arXiv</span>},
+  <span class="f">primaryClass</span>  = {<span class="v">cs.AI</span>},
+  <span class="f">note</span>          = {<span class="v">NeurIPS 2026 Workshop on Personalized, Aligned, Long-Term Memory for AI Systems (PALM)</span>},
+  <span class="f">url</span>           = {<span class="v">https://arxiv.org/abs/2611.08644</span>}
+}</pre>
+        </div>
+        <p class="caption">
+          The PALM workshop is non-archival, so the arXiv preprint is the citable version.
+          Workshop page: <a href="https://openreview.net/forum?id=7XhMLOsQoA" target="_blank" rel="noopener" style="color:var(--cyan)">openreview</a>.
+        </p>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div>// decision context · neurips 2026 palm workshop · <a href="../">back to nv-os</a></div>
+      <div>
+        <a href="https://arxiv.org/abs/2611.08644" target="_blank" rel="noopener">arxiv</a> &nbsp;·&nbsp;
+        <a href="https://github.com/NimaVahdat" target="_blank" rel="noopener">github</a> &nbsp;·&nbsp;
+        <a href="https://www.linkedin.com/in/nima-vahdat-a220654a/" target="_blank" rel="noopener">linkedin</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('copy-bib');
+      var pre = document.getElementById('bib');
+      if (!btn || !pre) return;
+      btn.addEventListener('click', function () {
+        var text = pre.innerText;
+        var done = function () {
+          btn.textContent = 'copied';
+          setTimeout(function () { btn.textContent = 'copy'; }, 1600);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, function () { btn.textContent = 'select + copy'; });
+        } else {
+          var r = document.createRange();
+          r.selectNodeContents(pre);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(r);
+          btn.textContent = 'selected';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

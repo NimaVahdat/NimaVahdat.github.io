@@ -124,6 +124,11 @@
               <div class="badge">v3</div>
             </div>
             <div class="readout-row">
+              <div class="label">paper</div>
+              <div class="value"><a href="decision-context/" style="color:var(--cyan); text-decoration:none;">decision context · neurips 2026</a></div>
+              <div class="badge green">accepted</div>
+            </div>
+            <div class="readout-row">
               <div class="label">awards</div>
               <div class="value">VISTA scholarship</div>
               <div class="badge green">grant</div>
@@ -158,37 +163,43 @@
         <article class="research-callout">
           <div class="glyph">◈</div>
           <div>
-            <h3 class="title">behavioral memory for llm agents</h3>
+            <h3 class="title">decision context — behavioral memory for llm agents</h3>
             <p class="desc">
-              <strong>forge_dc</strong> — a four-layer memory system that gets agents to actually follow what users tell them. Trigger-anchored progressive injection. <strong>dc-bench</strong> — the first benchmark for behavioral memory: 46 real-trace scenarios across 19 dimensions. <em>paper in preparation.</em>
+              <strong>forge_dc</strong> compiles human corrections and self-assessed tool failures into imperative <strong>RULE</strong> directives and injects them at the decision points where they apply. <strong>dc-bench</strong> — a benchmark for behavioral memory: 71 real-trace scenarios across 9 dimensions. <em>accepted at the <strong>neurips 2026 palm workshop</strong>.</em>
             </p>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;">
+              <a class="chip" href="decision-context/">project page</a>
+              <a class="chip" href="https://arxiv.org/abs/2611.08644" target="_blank" rel="noopener">arxiv:2611.08644</a>
+              <a class="chip" href="https://github.com/NimaVahdat/decision-context-memory" target="_blank" rel="noopener">code</a>
+              <a class="chip" href="https://github.com/NimaVahdat/decision-context-benchmark" target="_blank" rel="noopener">dc-bench</a>
+            </div>
           </div>
           <div class="stat">
-            <div class="num">97<span style="color:var(--fg-3); font-size:22px;">%</span></div>
+            <div class="num">95<span style="color:var(--fg-3); font-size:22px;">%</span></div>
             <div class="lab">compliance</div>
           </div>
         </article>
 
         <div class="metrics">
           <div class="metric">
-            <div class="num">+90</div>
-            <div class="lab">point gain vs. baseline</div>
-            <div class="delta">▲ from 7% → 97%</div>
+            <div class="num">+85</div>
+            <div class="lab">point gain vs. no memory</div>
+            <div class="delta">▲ from 10% → 95%</div>
           </div>
           <div class="metric">
-            <div class="num">~9×</div>
-            <div class="lab">context-token reduction</div>
-            <div class="delta">vs. hybrid rag</div>
+            <div class="num">10.7×</div>
+            <div class="lab">fewer injected tokens</div>
+            <div class="delta">159 vs. 1,705 naive retrieval</div>
           </div>
           <div class="metric">
-            <div class="num">46</div>
+            <div class="num">71</div>
             <div class="lab">benchmark scenarios</div>
-            <div class="delta">19 behavioral dims</div>
+            <div class="delta">9 behavioral dims</div>
           </div>
           <div class="metric">
-            <div class="num">+25</div>
-            <div class="lab">"only rules rule" gap</div>
-            <div class="delta">directive vs. evidence</div>
+            <div class="num">+46</div>
+            <div class="lab">points vs. best prior system</div>
+            <div class="delta">memp 49% → forge_dc 95%</div>
           </div>
         </div>
       </section>
@@ -209,7 +220,7 @@
             <div class="role-line"><span class="arrow">▸</span><span class="role">AI Research Engineer · R&amp;D</span></div>
             <p class="org">Georgian <span class="at">·</span> Toronto</p>
             <p class="summary">
-              Building <strong>behavioral memory</strong> for llm agents (<em>forge_dc</em>, <em>dc-bench</em>), the platform's <strong>MCP server</strong> (8 production integrations), <strong>OpenGeorge</strong> context engine, and a multi-agent blog-post pipeline. Discovered the <em>"only rules rule"</em> finding — paper in prep.
+              Building <strong>behavioral memory</strong> for llm agents (<em>forge_dc</em>, <em>dc-bench</em>), the platform's <strong>MCP server</strong> (8 production integrations), <strong>OpenGeorge</strong> context engine, and a multi-agent blog-post pipeline. Discovered the <em>"only rules rule"</em> finding — <a href="decision-context/" style="color:var(--cyan)">published at neurips 2026 (palm)</a>.
             </p>
             <div class="tags">
               <span class="tag">pydantic-ai</span><span class="tag">langgraph</span><span class="tag">fastmcp</span><span class="tag">postgres</span><span class="tag">terraform</span><span class="tag">gcp</span>
@@ -457,7 +468,7 @@
 
   </div>
 
-  <script src="js/terminal.js?v=2"></script>
+  <script src="js/terminal.js?v=3"></script>
   <script src="js/github.js?v=1"></script>
 </body>
 </html>

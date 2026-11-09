@@ -158,8 +158,9 @@
         } else if (t === 'research') {
           printLines([
             `<span class="am">behavioral_memory_for_llm_agents/</span>`,
-            `  ├─ <span class="cy">forge_dc</span>   four-layer memory · 97% compliance`,
-            `  └─ <span class="cy">dc-bench</span>   46 scenarios · 19 dimensions · in prep`
+            `  ├─ <span class="cy">forge_dc</span>   rule-compiling memory · 95% compliance`,
+            `  ├─ <span class="cy">dc-bench</span>   71 scenarios · 9 dimensions`,
+            `  └─ <span class="cy">paper</span>      neurips 2026 · palm workshop · arXiv:2611.08644`
           ]);
         } else {
           print(`<span class="err">ls: cannot access '${escapeHtml(t)}': no such directory</span>`);
@@ -167,7 +168,7 @@
       }
     },
     cat: {
-      desc: 'read entry (e.g. cat forge_dc, cat readme)',
+      desc: 'read entry (e.g. cat paper, cat forge_dc, cat readme)',
       run: (args) => {
         const f = (args[0] || '').toLowerCase();
         const docs = {
@@ -183,25 +184,44 @@
           'forge_dc': [
             `<span class="key">forge_dc</span> <span class="dim">— behavioral memory system</span>`,
             ``,
-            `four-layer architecture for llm agents that need to`,
-            `actually <em>follow</em> what users tell them to do.`,
+            `captures human corrections and self-assessed tool-call`,
+            `failures, compiles them into imperative <strong>RULE</strong> directives,`,
+            `and injects them at the decision point.`,
             ``,
-            `<span class="cy">▸</span> <strong>97%</strong> compliance vs. <strong>7%</strong> baseline (+90 points)`,
-            `<span class="cy">▸</span> trigger-anchored progressive injection`,
-            `<span class="cy">▸</span> ~9× context-token reduction vs. hybrid rag`,
+            `<span class="cy">▸</span> <strong>95%</strong> compliance vs. <strong>10%</strong> no-memory control (+85 points)`,
+            `<span class="cy">▸</span> 159 injected tokens vs. 1,705 for naive retrieval (10.7×)`,
+            `<span class="cy">▸</span> re-retrieval between tool calls for data-conditional rules`,
             `<span class="cy">▸</span> introduces the "only rules rule" finding`,
             ``,
-            `<span class="dim">paper in preparation.</span>`
+            `<span class="dim">accepted · neurips 2026 palm workshop · arXiv:2611.08644</span>`,
+            `<span class="dim">details:</span> <span class="cy">/decision-context/</span>`
           ],
           'dc-bench': [
             `<span class="key">dc-bench</span> <span class="dim">— behavioral memory benchmark</span>`,
             ``,
-            `the first benchmark for behavioral memory in llm agents.`,
+            `does an agent <em>apply</em> a past correction to an unseen`,
+            `task, or merely recall it?`,
             ``,
-            `<span class="cy">▸</span> 46 real-trace scenarios`,
-            `<span class="cy">▸</span> 19 behavioral dimensions`,
-            `<span class="cy">▸</span> seed-then-test on unseen subjects`,
-            `<span class="cy">▸</span> finding: synthetic seeds inflate scores by 30+ points`
+            `<span class="cy">▸</span> 71 real-trace scenarios`,
+            `<span class="cy">▸</span> 9 behavioral dimensions`,
+            `<span class="cy">▸</span> control vs. treatment runs, llm-judged lift`,
+            `<span class="cy">▸</span> approach- and provider-agnostic`,
+            ``,
+            `<span class="dim">code:</span> github.com/NimaVahdat/decision-context-benchmark`
+          ],
+          'paper': [
+            `<span class="key">decision context</span> <span class="dim">— persistent behavioral learning for ai agents</span>`,
+            ``,
+            `nima vahdat · pashootan vaezipoor <span class="dim">(georgian ai lab)</span>`,
+            `<span class="dim">neurips 2026 workshop on personalized, aligned,</span>`,
+            `<span class="dim">long-term memory for ai systems (palm) · paris</span>`,
+            ``,
+            `<span class="cy">▸</span> arXiv:2611.08644`,
+            `<span class="cy">▸</span> 95% compliance on dc-bench, up from 55% naive retrieval`,
+            `<span class="cy">▸</span> ~10× fewer injected tokens per query`,
+            `<span class="cy">▸</span> representation · activation · placement`,
+            ``,
+            `<span class="dim">read:</span> <span class="cy">/decision-context/</span>`
           ],
           'opengeorge': [
             `<span class="key">opengeorge</span> <span class="dim">— context engine</span>`,
@@ -227,7 +247,7 @@
         };
         if (!f) {
           print(`<span class="err">cat: missing operand</span>`);
-          print(`<span class="dim">try: cat readme  ·  cat forge_dc  ·  cat dc-bench  ·  cat opengeorge  ·  cat mcp</span>`);
+          print(`<span class="dim">try: cat readme  ·  cat paper  ·  cat forge_dc  ·  cat dc-bench  ·  cat opengeorge  ·  cat mcp</span>`);
           return;
         }
         if (docs[f]) {
@@ -268,12 +288,16 @@
       run: () => { goto('projects'); print(`<span class="dim">→ scrolled to /projects</span>`); }
     },
     open: {
-      desc: 'open a link (open github | open linkedin | open email)',
+      desc: 'open a link (open paper | open github | open linkedin | open email)',
       run: (args) => {
         const t = (args[0] || '').toLowerCase();
         const map = {
           github: 'https://github.com/NimaVahdat',
-          linkedin: 'https://www.linkedin.com/in/nima-vahdat-a220654a/'
+          linkedin: 'https://www.linkedin.com/in/nima-vahdat-a220654a/',
+          paper: 'decision-context/',
+          arxiv: 'https://arxiv.org/abs/2611.08644',
+          'dc-bench': 'https://github.com/NimaVahdat/decision-context-benchmark',
+          forge_dc: 'https://github.com/NimaVahdat/decision-context-memory'
         };
         if (map[t]) {
           print(`<span class="ok">opening</span> <span class="cy">${t}</span> <span class="dim">→ ${map[t]}</span>`);
